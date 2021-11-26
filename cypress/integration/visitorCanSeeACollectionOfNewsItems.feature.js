@@ -1,10 +1,11 @@
 /* eslint-disable no-undef */
-describe('User can see a a news feed', () => {
-
+describe('User can see a news feed', () => {
   beforeEach(() => {
-  })
-  it('', () => {
     cy.visit('/')
+  });
+
+  it('is expected to display "nwn" logo in the top menu', () => {
+    cy.get('[data-cy=nwn-logo]').should('be.visible');
   });
 });
 
