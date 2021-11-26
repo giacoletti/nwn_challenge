@@ -10,7 +10,7 @@ const App = () => {
     <>
       <Menu style={{ borderRadius: 0, background: '' }}>
         <Menu.Item>
-          <Image src={logo} size='tiny' centered />
+          <Image data-cy="nwn-logo" src={logo} size='tiny' centered />
         </Menu.Item>
         <Menu.Menu position='right'>
           <Menu.Item>

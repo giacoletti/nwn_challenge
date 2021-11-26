@@ -5,7 +5,9 @@ describe('User can see a news feed', () => {
   });
 
   it('is expected to display "nwn" logo in the top menu', () => {
-    cy.get('[data-cy=nwn-logo]').should('be.visible');
+    cy.get('[data-cy=nwn-menu]').within(() => {
+      cy.get('[data-cy=nwn-logo]').should('be.visible');
+    })
   });
 });
 
