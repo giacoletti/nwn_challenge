@@ -4,6 +4,7 @@ import { Header, Card } from 'semantic-ui-react'
 const NewsCard = (props) => {
   return (
     <Card
+      data-cy="news-1"
       image='https://editorial.fxstreet.com/images/Markets/Currencies/Digital%20Currencies/Bitcoin/bitcoins-52602600_Large.jpg'
       header='DBS Bank to launch cryptocurrency exchange after condemning Bitcoin a Ponzi scheme in 2017'
       meta={`By: ${'Lorenzo Stroe'} at ${'FXStreet'}`}

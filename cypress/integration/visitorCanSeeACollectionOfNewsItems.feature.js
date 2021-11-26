@@ -28,13 +28,13 @@ describe('Visiting the application, a user', () => {
 
     it('is expected to see first News Card with a picture, header, meta, description, publication date', () => {
       cy.get('[data-cy=news-1]').within(() => {
-        cy.get('[data-cy=news-image-1]').should('be.visible');
-        cy.get('[data-cy=news-header-1]').should('contain.text',
+        cy.get('.image').should('be.visible');
+        cy.get('.header').should('contain.text',
           'DBS Bank to launch cryptocurrency exchange after condemning Bitcoin a Ponzi scheme in 2017'
         ).should('be.visible');
-        cy.get('[data-cy=news-meta-1]').should('contain.text', 'By: Lorenzo Stroe at FXStreet').should('be.visible');
-        cy.get('[data-cy=news-description-1]').should('not.be.empty').should('be.visible');
-        cy.get('[data-cy=news-publication-1]').should('contain.text', 'Published at $2020-12-10T20:29:20Z').should('be.visible');
+        cy.get('.meta').should('contain.text', 'By: Lorenzo Stroe at FXStreet').should('be.visible');
+        cy.get('.description').should('not.be.empty').should('be.visible');
+        cy.get('.extra').should('contain.text', 'Published at $2020-12-10T20:29:20Z').should('be.visible');
       });
     });
   });
