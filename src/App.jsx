@@ -8,7 +8,7 @@ import logo from './nwn.png'
 const App = () => {
   return (
     <>
-      <Menu style={{ borderRadius: 0, background: '' }}>
+      <Menu data-cy="nwn-menu" style={{ borderRadius: 0, background: '' }}>
         <Menu.Item>
           <Image data-cy="nwn-logo" src={logo} size='tiny' centered />
         </Menu.Item>
