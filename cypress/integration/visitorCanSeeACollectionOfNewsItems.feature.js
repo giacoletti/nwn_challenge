@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 describe('Visiting the application, a user', () => {
   beforeEach(() => {
+    cy.intercept("GET", "https://newsapi.org/v2/top-headlines**").as("fetchData")
     cy.visit('/')
   });
 
@@ -20,6 +21,11 @@ describe('Visiting the application, a user', () => {
     cy.get('[data-cy=nwn-subheader]').should('contain.text', 'News from around the world')
       .should('be.visible');
   });
+
+  it('is expected to return an array of data', () => {
+    cy.get("@fetchData").its("response.data.articles").should("be.an", "array")
+  });
+
 
   describe('can see a collection of News Items and', () => {
     it('is expected to see 5 list items', () => {
