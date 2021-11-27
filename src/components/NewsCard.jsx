@@ -5,6 +5,7 @@ import { Header, Card } from 'semantic-ui-react';
 const NewsCard = (props) => {
   return (
     <Card
+      href={props.news.url}
       data-cy={`news-${props.news.id}`}
       image={props.news.urlToImage}
       header={props.news.title}
