@@ -1,8 +1,11 @@
 /* eslint-disable no-undef */
 describe('Visiting the application, a user', () => {
   beforeEach(() => {
-    // cy.intercept("GET", "https://newsapi.org/v2/top-headlines**").as("fetchData");
+    cy.intercept("GET", "https://newsapi.org/v2/top-headlines**", {
+      fixture: "newsResponse.json"
+    }).as("fetchData");
     cy.visit('/');
+    cy.wait('@fetchData');
   });
 
   it('is expected to see "nwn" logo and a search input in the top menu', () => {
@@ -23,7 +26,7 @@ describe('Visiting the application, a user', () => {
   });
 
   it('is expected to return an array of data', () => {
-    // cy.get("@fetchData").its("response.data.articles").should("be.an", "array");
+    cy.get("@fetchData").its("response.body.articles").should("be.an", "array");
   });
 
   describe('can see a collection of News Items and', () => {
@@ -31,15 +34,14 @@ describe('Visiting the application, a user', () => {
       cy.get('[data-cy=news-list]').children().should('have.length', 20);
     });
 
-    it.only('is expected to see first News Card with a picture, header, meta, description, publication date', () => {
+    it('is expected to see first News Card with a picture, header, meta, description, publication date', () => {
       cy.get('[data-cy=news-1]').within(() => {
         cy.get('.image').should('be.visible');
-        cy.get('.header').should('contain.text',
-          'DBS Bank to launch cryptocurrency exchange after condemning Bitcoin a Ponzi scheme in 2017'
-        ).should('be.visible');
-        cy.get('.meta').should('contain.text', 'By: Lorenzo Stroe at FXStreet').should('be.visible');
-        cy.get('.description').should('not.be.empty').should('be.visible');
-        cy.get('.extra').should('contain.text', 'Published at $2020-12-10T20:29:20Z').should('be.visible');
+        cy.get('.header').should('contain.text', 'The best developers team ever').should('be.visible');
+        cy.get('.meta').should('contain.text', 'By: Love and Giovanni at New York Times').should('be.visible');
+        cy.get('.description').should('contain.text',
+          'We just found out how to build fantastic React applications').should('be.visible');
+        cy.get('.extra').should('contain.text', 'Published at 2030-11-27T20:34:49Z').should('be.visible');
       });
     });
   });
