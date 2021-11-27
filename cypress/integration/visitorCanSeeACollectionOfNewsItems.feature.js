@@ -27,11 +27,11 @@ describe('Visiting the application, a user', () => {
   });
 
   describe('can see a collection of News Items and', () => {
-    it('is expected to see 5 list items', () => {
-      cy.get('[data-cy=news-list]').children().should('have.length', 5);
+    it('is expected to see 20 list items', () => {
+      cy.get('[data-cy=news-list]').children().should('have.length', 20);
     });
 
-    it('is expected to see first News Card with a picture, header, meta, description, publication date', () => {
+    it.only('is expected to see first News Card with a picture, header, meta, description, publication date', () => {
       cy.get('[data-cy=news-1]').within(() => {
         cy.get('.image').should('be.visible');
         cy.get('.header').should('contain.text',

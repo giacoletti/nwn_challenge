@@ -13,14 +13,23 @@ const NewsIndex = () => {
     setNews(response);
   };
 
+  const newsList = news.map((news, index) => {
+    news.id = index + 1;
+    return (
+      <div key={news.id}>
+        <NewsCard news={news} />
+      </div>
+    );
+  });
+
   useEffect(() => {
     fetchNews();
   }, []);
 
   return (
     <>
-      <Grid>
-        <NewsCard />
+      <Grid data-cy="news-list">
+        {newsList}
       </Grid>
     </>
   );
