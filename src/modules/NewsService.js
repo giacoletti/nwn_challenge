@@ -11,6 +11,7 @@ const NewsService = {
         apiKey: process.env.REACT_APP_NEWS_API_KEY
       }
     });
+    debugger
     return response;
   },
 
