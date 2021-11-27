@@ -1,13 +1,22 @@
-import axios from 'axios'
+import axios from 'axios';
 
 const NewsService = {
-  async index() {
 
+  endpointUrl: "https://newsapi.org/v2/top-headlines",
+
+  async index() {
+    const response = await axios.get(this.endpointUrl, {
+      params: {
+        language: 'en',
+        apiKey: process.env.REACT_APP_NEWS_API_KEY
+      }
+    });
+    return response;
   },
 
   async search(query) {
 
   }
-}
+};
 
-export default NewsService
+export default NewsService;
