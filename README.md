@@ -42,8 +42,8 @@ call is made when the "Search" button is clicked, if text is typed in the input 
 
 ## Acknowledgments
 
-[How to Pass Data and Events Between Components in React](https://www.freecodecamp.org/news/pass-data-between-components-in-react/)
-[Thomas](https://github.com/tochman)
+- [How to Pass Data and Events Between Components in React](https://www.freecodecamp.org/news/pass-data-between-components-in-react/)
+- [Thomas](https://github.com/tochman)
 
 Improvement plans
 -------
