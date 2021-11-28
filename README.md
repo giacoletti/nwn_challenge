@@ -40,6 +40,13 @@ call is made when the "Search" button is clicked, if text is typed in the input 
 - semantic-ui-css
 - web-vitals
 
+Screenshots
+-------
+
+![](./screenshots/Screenshot_2021-11-28_18-52-19.png)
+
+![](./screenshots/Screenshot_2021-11-28_18-52-34.png)
+
 ## Acknowledgments
 
 - [How to Pass Data and Events Between Components in React](https://www.freecodecamp.org/news/pass-data-between-components-in-react/)
