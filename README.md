@@ -47,6 +47,10 @@ Screenshots
 
 ![](./screenshots/Screenshot_2021-11-28_18-52-34.png)
 
+![](./screenshots/Screenshot_2021-11-28_19-33-03.png)
+
+![](./screenshots/Screenshot_2021-11-28_19-36-11.png)
+
 ## Acknowledgments
 
 - [How to Pass Data and Events Between Components in React](https://www.freecodecamp.org/news/pass-data-between-components-in-react/)
