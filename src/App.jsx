@@ -1,10 +1,17 @@
-import React from 'react'
-import NewsSearch from './components/NewsSearch'
-import { Container, Menu, Header, Image } from 'semantic-ui-react'
-import NewsIndex from './components/NewsIndex'
-import logo from './nwn.png'
+import React, { useState } from 'react';
+import NewsSearch from './components/NewsSearch';
+import { Container, Menu, Header, Image } from 'semantic-ui-react';
+import NewsIndex from './components/NewsIndex';
+import logo from './nwn.png';
 
 const App = () => {
+
+  const [userSearch, setUserSearch] = useState([]);
+
+  const childToParent = (childData) => {
+    setUserSearch(childData);
+  };
+
   return (
     <>
       <Menu data-cy="nwn-menu" style={{ borderRadius: 0, background: '' }}>
@@ -13,7 +20,7 @@ const App = () => {
         </Menu.Item>
         <Menu.Menu position="right">
           <Menu.Item>
-            <NewsSearch />
+            <NewsSearch childToParent={childToParent}/>
           </Menu.Item>
         </Menu.Menu>
       </Menu>
@@ -22,10 +29,10 @@ const App = () => {
           News Wire Network
         </Header>
         <p data-cy="nwn-subheader">News from around the world</p>
-        <NewsIndex />
+        <NewsIndex search={userSearch}/>
       </Container>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;

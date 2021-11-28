@@ -2,7 +2,7 @@
 describe('Visiting the application, a user', () => {
   beforeEach(() => {
     cy.intercept("GET", "https://newsapi.org/v2/top-headlines**", {
-      fixture: "newsResponse.json"
+      fixture: "news_index.json"
     }).as("fetchData");
     cy.visit('/');
     cy.wait('@fetchData');

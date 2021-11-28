@@ -4,7 +4,7 @@ import NewsCard from './NewsCard';
 import NewsService from '../modules/NewsService';
 import { Grid } from 'semantic-ui-react';
 
-const NewsIndex = () => {
+const NewsIndex = (props) => {
 
   const [news, setNews] = useState([]);
 
@@ -25,6 +25,12 @@ const NewsIndex = () => {
   useEffect(() => {
     fetchNews();
   }, []);
+
+  useEffect(() => {
+    if (props.search.length > 0) {
+      setNews(props.search);
+    }
+  }, [props.search]);
 
   return (
     <>
