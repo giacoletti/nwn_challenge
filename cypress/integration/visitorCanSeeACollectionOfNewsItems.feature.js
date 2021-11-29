@@ -1,11 +1,14 @@
 /* eslint-disable no-undef */
 describe('Visiting the application, a user', () => {
-  beforeEach(() => {
+  before(() => {
     cy.intercept("GET", "https://newsapi.org/v2/top-headlines**", {
       fixture: "news_index.json"
     }).as("fetchData");
     cy.visit('/');
-    cy.wait('@fetchData');
+  });
+  
+  it('is expected to return an array of data', () => {
+    cy.wait("@fetchData").its("response.body.articles").should("be.an", "array");
   });
 
   it('is expected to see "nwn" logo and a search input in the top menu', () => {
@@ -23,10 +26,6 @@ describe('Visiting the application, a user', () => {
   it('is expected to see a subheader "News from around the world"', () => {
     cy.get('[data-cy=nwn-subheader]').should('contain.text', 'News from around the world')
       .should('be.visible');
-  });
-
-  it('is expected to return an array of data', () => {
-    cy.get("@fetchData").its("response.body.articles").should("be.an", "array");
   });
 
   describe('can see a collection of News Items and', () => {

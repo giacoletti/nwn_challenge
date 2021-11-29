@@ -1,7 +1,6 @@
 import React from 'react';
 import { Header, Card } from 'semantic-ui-react';
 
-
 const NewsCard = (props) => {
   return (
     <Card

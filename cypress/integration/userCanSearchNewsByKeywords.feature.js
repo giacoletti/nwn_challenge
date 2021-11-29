@@ -1,5 +1,5 @@
 describe('Visiting the application, a user can type a keyword in the search input and click "Search" button', () => {
-  beforeEach(() => {
+  before(() => {
     cy.intercept('GET', 'https://newsapi.org/v2/everything**', {
       fixture: "news_search.json"
     }).as("fetchData");
@@ -8,12 +8,10 @@ describe('Visiting the application, a user can type a keyword in the search inpu
     cy.get('[data-cy=nwn-search-input]').within(() => {
       cy.get('.button').click();
     })
-    cy.wait('@fetchData');
   });
 
-
   it('is expected to return an array of data', () => {
-    cy.get("@fetchData").its("response.body.articles").should("be.an", "array");
+    cy.wait("@fetchData").its("response.body.articles").should("be.an", "array");
   });
 
   describe('can see news relative to the search', () => {

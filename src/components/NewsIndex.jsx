@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import NewsCard from './NewsCard';
 import NewsService from '../modules/NewsService';
 import { Grid } from 'semantic-ui-react';
